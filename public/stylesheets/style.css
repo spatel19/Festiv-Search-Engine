@@ -1,0 +1,9 @@
+body {
+  min-height: 75rem;
+  padding-top: 6.5rem;
+  font: 14px "Open Sans", Helvetica, Arial, sans-serif;
+}
+.h1tag {
+  color: #795548 !important;
+
+}

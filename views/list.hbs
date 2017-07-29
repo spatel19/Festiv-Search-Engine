@@ -1,0 +1,73 @@
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{googleApi}}&libraries=places"></script>
+<div class="results-page">
+  <div>
+    <h1 style='padding: 10px'>Best Venue Matches</h1>
+    <div>Not happy with your results? Fill out the form again below.</div>
+    <div class="row center">
+      <form id="form" method="post" action="/newSearch">
+        <div class="input-field col s6">
+          <select name="type">
+            <option disabled selected>Choose your venue</option>
+            <option>Bar</option>
+            <option>Restaurant</option>
+            <option>Night club</option>
+            <option>Museum</option>
+            <option>Library</option>
+            <option>Art gallery</option>
+          </select>
+        </div>
+        <div id="locationField" class="input-field col s6">
+          <input type="text" name="location" id="autocomplete">
+        </div>
+        <div class="input-field col s6">
+          <select name="radius">
+            <option disabled selected>Choose your radius</option>
+            <option value='5'>5 miles</option>
+            <option value='10'>10 miles</option>
+            <option value ='20'>20 miles</option>
+          </select>
+        </div>
+        <button class="btn waves-effect waves-light brown" type="submit">Submit
+            <i class="material-icons right">send</i>
+        </button>
+      </form>
+    </div>
+  </div>
+  <!-- use hbs #each to loop through results. just writing html for one result -->
+  <ul class="list-group">
+    {{#each venues}}
+    <li class="list-group-item">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <a href="/venue?name={{this.name}}&address={{this.address}}"><h3>{{this.name}}</h3></a>
+            <img src='{{this.link}}'>
+          </div>
+          <div class="col l6 s12">
+            <ul>
+              <li><b>Address: </b><a href="{{this.url}}">{{this.address}} </a></li>
+              <li><b>Phone Number:</b> {{this.phone}} </li>
+              <li><b>Rating:</b> {{this.rating}} </li>
+              <li><b>Website:</b> <a href="{{this.website}}">{{this.website}} </a> </li>
+              <li><b>Hours:</b>
+                <div style="padding: 5px">
+                  {{#each this.hours}}
+                    <p>{{this}}</p>
+                  {{/each}}
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <form action="/cart?name={{this.name}}&address={{this.address}}" method="post">
+          <button class="btn" type="submit" name="button">Add to MyVenues</button>
+        </form>
+      </div>
+    </li>
+    {{/each}}
+  </ul>
+<div>
+  <script>
+    var input = document.getElementById('autocomplete');
+    var autocomplete = new google.maps.places.Autocomplete(input);
+  </script>

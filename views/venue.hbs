@@ -1,0 +1,64 @@
+<ul>
+  <li class="list-group-item">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h3>{{venue.name}}</h3>
+          <img src='{{venue.link}}'>
+          <br></br>
+          <br></br>
+
+          <style>
+          #map {
+            height: 300px;
+            width: 87%;
+           }
+        </style>
+        <div id="map" class={}></div>
+        </div>
+        <div class="col l6 s12">
+          <ul style="padding-top: 60px">
+            <li><b>Address: </b><a href="{{venue.url}}">{{venue.address}} </a></li>
+            <br></br>
+            <li><b>Phone Number:</b> {{venue.phone}} </li>
+            <br></br>
+
+            <li><b>Rating:</b> {{venue.rating}} </li>
+            <br></br>
+
+            <li><b>Website:</b> <a href="{{venue.website}}">{{venue.website}} </a> </li>
+            <br></br>
+            <li><b>Hours:</b>
+              <br></br>
+                <div style="padding: 5px; border-radius: 3px">
+                  {{#each venue.hours}}
+                    <p>{{this}}</p>
+                  {{/each}}
+                </div>
+            </li>
+          </ul>
+          <form action="/cart?name={{venue.name}}&address={{venue.address}}" method="post">
+            <button class="btn" type="submit" name="button">Add to MyVenues</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<script>
+      function initMap() {
+        var uluru = {lat: {{venue.lat}}, lng: {{venue.long}} };
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7j6tBWnmcFm_nZOpXhX4rQSEGUAtxMC0&callback=initMap">
+    </script>

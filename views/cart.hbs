@@ -1,0 +1,39 @@
+<ul>
+  <li class="list-group-item">
+    <div class="container">
+      <!-- use hbs #each to loop through results. just writing html for one result -->
+      <ul class="list-group">
+        {{#each venues}}
+        <li class="list-group-item">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <a href="/venue?name={{this.name}}&address={{this.address}}"><h3>{{this.name}}</h3></a>
+                <img src='{{this.link}}'>
+              </div>
+              <div class="col l6 s12">
+                <h5>Info</h5>
+                <ul>
+                  <li><b>Address: </b><a href="{{this.url}}">{{this.address}} </a></li>
+                  <li><b>Phone Number:</b> {{this.phone}} </li>
+                  <li><b>Rating:</b> {{this.rating}} </li>
+                  <li><b>Website:</b> <a href="{{this.website}}">{{this.website}} </a> </li>
+                  <li><b>Hours:</b>
+                      {{#each this.hours}}
+                        <p>{{this}}</p>
+                      {{/each}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <form action="/remove?name={{this.name}}&address={{this.address}}" method="post">
+              <button class="btn" type="submit" name="button">Remove from Cart</button>
+            </form>
+          </div>
+        </li>
+        {{/each}}
+      </ul>
+        <a class="btn" name="button" href="/">Back to All Venues</a>
+    </div>
+  </li>
+</ul>

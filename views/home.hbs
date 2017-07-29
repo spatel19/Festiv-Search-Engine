@@ -1,0 +1,114 @@
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{googleApi}}&libraries=places"></script>
+<div id="index-banner" class="parallax-container">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <br><br>
+      <h1 id="h1tag" class="header center white-text text-lighten-2">LET'S GET FESTIV!</h1>
+      <h2 id="h2tag" class="header center white-text text-lighten-2">browse venues. compare options. book confidently.</h2>
+      <div class="row center">
+        <form id="form" method="post" action="/info">
+          <div class="input-field col s6">
+            <select name="type">
+              <option disabled selected>Choose your venue</option>
+              <option>Bar</option>
+              <option>Restaurant</option>
+              <option>Night club</option>
+              <option>Museum</option>
+              <option>Library</option>
+              <option>Art gallery</option>
+            </select>
+          </div>
+          <div id="locationField" class="input-field col s6">
+            <input type="text" name="location" id="autocomplete">
+          </div>
+          <div class="input-field col s6">
+            <select name="radius">
+              <option disabled selected>Choose your radius</option>
+              <option value='5'>5 miles</option>
+              <option value='10'>10 miles</option>
+              <option value ='20'>20 miles</option>
+            </select>
+          </div>
+          <button class="btn waves-effect waves-light brown" type="submit">Submit
+              <i class="material-icons right">send</i>
+          </button>
+        </form>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+  <div class="parallax"><img id="firstimage"src="../images/max.jpeg" alt="Unsplashed background img 1"></div>
+</div>
+
+
+<div class="container">
+  <div class="section">
+
+    <!--   Icon Section   -->
+    <div class="row">
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text"><i class="material-icons">search</i></h2>
+          <h5 class="center">Find Locations</h5>
+
+          <p class="light">Skip the cold calls and hassle! Because seriously who's got time for that? Instead simply search and filter through our curated list of venues, explore photos and read reviews to find your next setting.</p>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text"><i class="material-icons">supervisor_account</i></h2>
+          <h5 class="center">User Experience</h5>
+
+          <p class="light">Get the inside scoop on your favorite venues because at Festiv we love transparency. That means no more treasure hunting for fair prices and you can say goodbye to uncomfortable price negotiations.</p>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text"><i class="material-icons">thumb_up</i></h2>
+          <h5 class="center">Easy to Work With</h5>
+
+          <p class="light">Ready to book? Great! We’ll reach out to finalize details and then promptly send you a confirmation. Go ahead and cheers to a job well done.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <div class="row center">
+        <h5 class="header col s12 light"></h5>
+      </div>
+    </div>
+  </div>
+  <div class="parallax"><img src="../images/rsz_second.jpg" alt="Unsplashed background img 2"></div>
+</div>
+
+<div class="container">
+  <div class="section">
+
+    <div class="row">
+      <div class="col s12 center">
+        <h3><i class="mdi-content-send brown-text"></i></h3>
+        <h4>Contact Us</h4>
+        <div class="center-align light" id="contact">
+          <div class="contact">Email: Festiv@horizons.com</div>
+          <div class="contact">Phone: 1-800-FES-TIVE </div>
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script>
+  var input = document.getElementById('autocomplete');
+  var autocomplete = new google.maps.places.Autocomplete(input);
+</script>

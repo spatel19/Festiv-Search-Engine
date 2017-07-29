@@ -1,0 +1,35 @@
+<div class="parallax-container valign-wrapper">
+  <div class="container">
+    <br><br>
+    <center>
+      <form id="form" method="post" action="/wishlist">
+        <div class="divBox">
+          <input type='text' name="guestCount" placeholder="Guest Count" class="row center">
+        </div>
+        <div class="divBox">
+          <input placeholder="start time" name="date" type="datetime-local" id="dateBox">
+        </div>
+        <div class="divBox" id="hours">
+          <input name="hours" type='text' placeholder="Number of hours" class='row center'>
+        </div>
+
+        <div class="divBox" id='price'>
+          <select name="price">
+                      <option id="choosePrice" disabled selected>Choose Your Price Type</option>
+                      <option>Open Bar</option>
+                      <option>Minimum Spend</option>
+                    </select>
+        </div>
+        <div id="submitBtn" class="row center">
+          <button class="btn waves-effect waves-light brown" type="submit">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+        </div>
+      </form>
+    </center>
+  </div>
+  <br><br>
+
+
+  <div class="parallax"><img src="../images/rsz_second.jpg" alt="Unsplashed background img 2"></div>
+</div>
